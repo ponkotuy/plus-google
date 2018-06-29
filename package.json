@@ -11,7 +11,7 @@
   "scripts": {
     "build": "npm run build:pug && npm run build:js",
     "build:pug": "pug ./src/pug --out ./public/ --pretty",
-    "build:js": "cp -r ./src/js ./public"
+    "build:js": "cp -r ./src/js ./public/"
   },
   "repository": {
     "type": "git",

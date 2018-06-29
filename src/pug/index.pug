@@ -2,9 +2,14 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
     title Plus Google
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/muicss/0.9.39/css/mui.min.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/muicss/0.9.39/js/mui.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js')
     script(src='js/main.js')
   body
-    form
-      input#query(type='text')
-      button#search(type='buton', onclick='s()') Search
+    form#searcher.mui-form--inline
+      .mui-textfield
+        input#query(type='text', v-model='query')
+      button.mui-btn.mui-btn--primary(type='button', @click='search') search
