@@ -2,13 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="utf8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Plus Google</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/muicss/0.9.39/css/mui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/muicss/0.9.39/js/mui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
     <script src="js/main.js"></script>
+    <style>
+      .mui-container {
+        padding-top: 10%;
+      }
+    </style>
   </head>
   <body>
-    <form>
-      <input id="query" type="text">
-      <button id="search" type="buton" onclick="s()">Search</button>
-    </form>
+    <div class="mui-container mui--text-center">
+      <div class="mui--text-display4">Plus Google</div>
+      <form class="mui-form--inline" id="searcher" style="padding: 5%" @submit.prevent @submit="search">
+        <div class="mui-textfield" style="width: 50%">
+          <input id="query" type="text" v-model="query" style="height: 50px; font-size: 3em;">
+        </div>
+        <button class="mui-btn mui-btn--primary mui-btn--large" type="submit">search</button>
+      </form>
+      <form class="mui-form" id="loader" style="padding: 5%" @submit.prevent @submit="load">
+        <div class="mui-textfield">
+          <label>Exclude elements from JSON</label>
+          <textarea id="json" type="text" v-model="json"></textarea>
+        </div>
+        <button class="mui-btn mui-btn--default" type="submit">save JSON</button>
+      </form>
+    </div>
   </body>
 </html>
