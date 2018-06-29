@@ -14,14 +14,14 @@ html(lang='en')
       }
   body
     .mui-container.mui--text-center
-      .mui--text-display3 Plus Google
-      form#searcher.mui-form--inline(style='padding: 5%')
+      .mui--text-display4 Plus Google
+      form#searcher.mui-form--inline(style='padding: 5%', @submit.prevent, @submit='search')
         .mui-textfield(style='width: 50%')
           input#query(type='text', v-model='query', style='height: 50px; font-size: 3em;')
-        button.mui-btn.mui-btn--primary.mui-btn--large(type='button', @click='search') search
+        button.mui-btn.mui-btn--primary.mui-btn--large(type='submit') search
 
-      form#loader.mui-form(style='padding: 5%')
+      form#loader.mui-form(style='padding: 5%', @submit.prevent, @submit='load')
         .mui-textfield
           label Exclude elements from JSON
           textarea#json(type='text', v-model='json')
-        button.mui-btn.mui-btn--default(type='button', @click='load') save JSON
+        button.mui-btn.mui-btn--default(type='submit') save JSON
