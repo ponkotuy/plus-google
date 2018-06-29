@@ -6,10 +6,22 @@ html(lang='en')
     title Plus Google
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/muicss/0.9.39/css/mui.min.css')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/muicss/0.9.39/js/mui.min.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js')
     script(src='js/main.js')
+    style.
+      .mui-container {
+        padding-top: 10%;
+      }
   body
-    form#searcher.mui-form--inline
-      .mui-textfield
-        input#query(type='text', v-model='query')
-      button.mui-btn.mui-btn--primary(type='button', @click='search') search
+    .mui-container.mui--text-center
+      .mui--text-display3 Plus Google
+      form#searcher.mui-form--inline(style='padding: 5%')
+        .mui-textfield(style='width: 50%')
+          input#query(type='text', v-model='query', style='height: 50px; font-size: 3em;')
+        button.mui-btn.mui-btn--primary.mui-btn--large(type='button', @click='search') search
+
+      form#loader.mui-form(style='padding: 5%')
+        .mui-textfield
+          label Exclude elements from JSON
+          textarea#json(type='text', v-model='json')
+        button.mui-btn.mui-btn--default(type='button', @click='load') save JSON
