@@ -6,7 +6,7 @@ window.onload = () => {
     },
     methods: {
       search: function () {
-        const json = JSON.parse(localStorage.getItem('json'));
+        const json = JSON.parse(localStorage.getItem('json')) || [];
         const addQuery = encodeURIComponent(json.map( elem => `-${elem.key}:${elem.value}` ).join(' '));
         location.href = `https://www.google.com/search?q=${this.query}+${addQuery}`
       }
