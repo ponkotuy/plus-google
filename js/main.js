@@ -28,7 +28,13 @@ window.onload = () => {
     },
     methods: {
       load: function () {
-        localStorage.setItem('json', this.json);
+        try {
+          JSON.parse(this.json);
+          localStorage.setItem('json', this.json);
+          iziToast.show({title: 'Saved', color: 'green', message: 'Successfully saved!'})
+        } catch {
+          iziToast.show({title: 'Failed', color: 'red', message: 'Saving failed...'})
+        }
       }
     }
   })
