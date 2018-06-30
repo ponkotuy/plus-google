@@ -19,7 +19,7 @@
       <div class="mui--text-display4">Plus Google</div>
       <form class="mui-form--inline" id="searcher" style="padding: 5%" @submit.prevent @submit="search">
         <div class="mui-textfield" style="width: 50%">
-          <input id="query" type="text" v-model="query" style="height: 50px; font-size: 3em;">
+          <input id="query" type="text" name="q" v-model="query" style="height: 50px; font-size: 3em;">
         </div>
         <button class="mui-btn mui-btn--primary mui-btn--large" type="submit">search</button>
       </form>
