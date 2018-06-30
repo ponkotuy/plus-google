@@ -17,7 +17,7 @@ html(lang='en')
       .mui--text-display4 Plus Google
       form#searcher.mui-form--inline(style='padding: 5%', @submit.prevent, @submit='search')
         .mui-textfield(style='width: 50%')
-          input#query(type='text', v-model='query', style='height: 50px; font-size: 3em;')
+          input#query(type='text', name='q', v-model='query', style='height: 50px; font-size: 3em;')
         button.mui-btn.mui-btn--primary.mui-btn--large(type='submit') search
 
       form#loader.mui-form(style='padding: 5%', @submit.prevent, @submit='load')

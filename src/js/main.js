@@ -1,4 +1,13 @@
 window.onload = () => {
+  const redirect = (query) => {
+    const json = JSON.parse(localStorage.getItem('json')) || [];
+    const addQuery = encodeURIComponent(json.map( elem => `-${elem.key}:${elem.value}` ).join(' '));
+    location.href = `https://www.google.com/search?q=${query}+${addQuery}`
+  };
+
+  const firstQuery = location.search.replace('?', '').replace('q=', '');
+  if(firstQuery !== '') redirect(firstQuery);
+
   new Vue({
     el: '#searcher',
     data: {
@@ -6,9 +15,7 @@ window.onload = () => {
     },
     methods: {
       search: function () {
-        const json = JSON.parse(localStorage.getItem('json')) || [];
-        const addQuery = encodeURIComponent(json.map( elem => `-${elem.key}:${elem.value}` ).join(' '));
-        location.href = `https://www.google.com/search?q=${this.query}+${addQuery}`
+        redirect(this.query)
       }
     }
   });
